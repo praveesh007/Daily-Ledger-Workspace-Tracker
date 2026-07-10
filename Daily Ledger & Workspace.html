@@ -5,37 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Ledger & Workspace</title>
   <style>
-    /* 9 Distinct Palette Variable Definitions */
+    /* Reengineered Space Gradient Variable Maps */
     :root {
-      --bg-color: #f7f5f0; --card-bg: #ffffff; --text-main: #2b2b2a; --text-muted: #7c7a77; --border-color: #e5e2db; --accent-green: #7FA37A; --accent-red: #C1440E;
+      --bg-color: #050508; --card-bg: #11161d; --text-main: #c9a054; --text-muted: #e67e22; --border-color: #2c2519; --accent-green: #2ecc71; --accent-red: #e74c3c;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #0d1216 0%, #06080b 40%, #020205 100%);
+      --card-cosmic: linear-gradient(145deg, #090d12 0%, #11161d 60%, #171e26 100%);
     }
     [data-theme="dark"] {
-      --bg-color: #121212; --card-bg: #1e1e1e; --text-main: #e0e0e0; --text-muted: #a0a0a0; --border-color: #333333; --accent-green: #81c784; --accent-red: #e57373;
+      --bg-color: #020205; --card-bg: #0b0f14; --text-main: #8b949e; --text-muted: #58a6ff; --border-color: #21262d; --accent-green: #56ef83; --accent-red: #ff6b6b;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #0a0f14 0%, #040609 50%, #010103 100%);
+      --card-cosmic: linear-gradient(135deg, #070a0e 0%, #0f151c 100%);
     }
     [data-theme="cyberpunk"] {
-      --bg-color: #000b19; --card-bg: #001631; --text-main: #00ff66; --text-muted: #00a8ff; --border-color: #00ff66; --accent-green: #00ff66; --accent-red: #ff0055;
+      --bg-color: #00040a; --card-bg: #000f21; --text-main: #00ff66; --text-muted: #00a8ff; --border-color: #00ff66; --accent-green: #00ff66; --accent-red: #ff0055;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #000b19 0%, #00040a 100%);
+      --card-cosmic: linear-gradient(180deg, #001126 0%, #000814 100%);
     }
     [data-theme="sepia"] {
-      --bg-color: #f4ecd8; --card-bg: #fdf6e3; --text-main: #5b4636; --text-muted: #8f7762; --border-color: #e4d4be; --accent-green: #608060; --accent-red: #b04040;
+      --bg-color: #17120e; --card-bg: #292018; --text-main: #e6cbb7; --text-muted: #c49a78; --border-color: #4f3f32; --accent-green: #8ca38c; --accent-red: #d17777;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #241a13 0%, #110c08 100%);
+      --card-cosmic: linear-gradient(135deg, #211913 0%, #2f251c 100%);
     }
     [data-theme="ocean"] {
-      --bg-color: #e0f2f1; --card-bg: #ffffff; --text-main: #004d40; --text-muted: #00796b; --border-color: #b2dfdb; --accent-green: #4db6ac; --accent-red: #e06666;
+      --bg-color: #000a12; --card-bg: #002233; --text-main: #b2dfdb; --text-muted: #4db6ac; --border-color: #004d40; --accent-green: #00e5ff; --accent-red: #ff7043;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #001624 0%, #000812 100%);
+      --card-cosmic: linear-gradient(135deg, #001b29 0%, #002b40 100%);
     }
     [data-theme="forest"] {
-      --bg-color: #1b2e1e; --card-bg: #2d4a32; --text-main: #f1f8f3; --text-muted: #a3c2a8; --border-color: #3f6645; --accent-green: #a3e2a8; --accent-red: #e58282;
+      --bg-color: #030805; --card-bg: #0d1c12; --text-main: #a3e2a8; --text-muted: #73a978; --border-color: #1b3824; --accent-green: #5cd66e; --accent-red: #e58282;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #08170f 0%, #020604 100%);
+      --card-cosmic: linear-gradient(135deg, #09140d 0%, #122619 100%);
     }
     [data-theme="dracula"] {
-      --bg-color: #282a36; --card-bg: #44475a; --text-main: #f8f8f2; --text-muted: #6272a4; --border-color: #ff79c6; --accent-green: #50fa7b; --accent-red: #ff5555;
+      --bg-color: #0b0c10; --card-bg: #1d1f27; --text-main: #f8f8f2; --text-muted: #ff79c6; --border-color: #44475a; --accent-green: #50fa7b; --accent-red: #ff5555;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #181920 0%, #090a0d 100%);
+      --card-cosmic: linear-gradient(135deg, #14151a 0%, #242630 100%);
     }
     [data-theme="nord"] {
-      --bg-color: #2e3440; --card-bg: #3b4252; --text-main: #eceff4; --text-muted: #d8dee9; --border-color: #4c566a; --accent-green: #a3be8c; --accent-red: #bf616a;
+      --bg-color: #1a1c23; --card-bg: #242933; --text-main: #eceff4; --text-muted: #88c0d0; --border-color: #3b4252; --accent-green: #a3be8c; --accent-red: #bf616a;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #20242c 0%, #111317 100%);
+      --card-cosmic: linear-gradient(135deg, #1c2027 0%, #2b313c 100%);
     }
     [data-theme="sunset"] {
-      --bg-color: #fff3e0; --card-bg: #ffffff; --text-main: #4e342e; --text-muted: #d84315; --border-color: #ffcc80; --accent-green: #ffb74d; --accent-red: #ff7043;
+      --bg-color: #120905; --card-bg: #2b160c; --text-main: #ffb74d; --text-muted: #ff7043; --border-color: #4e2918; --accent-green: #ffd54f; --accent-red: #ff5252;
+      --cosmic-bg: radial-gradient(circle at 50% 50%, #1f0f08 0%, #0a0402 100%);
+      --card-cosmic: linear-gradient(135deg, #1f0f08 0%, #361c0f 100%);
     }
 
     /* Font Classes */
-    .font-sans { font-family: -apple-system, sans-serif; }
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     .font-serif { font-family: Georgia, serif; }
     .font-mono { font-family: 'Courier New', monospace; }
     .font-cursive { font-family: 'Brush Script MT', cursive, sans-serif; }
@@ -49,92 +67,112 @@
     
     body {
       display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;
-      background-color: var(--body-bg-custom, var(--bg-color)); 
+      background: var(--body-bg-custom, var(--cosmic-bg)) !important; 
       background-size: cover; background-position: center; background-attachment: fixed;
       transition: background-color 0.3s, color 0.3s;
       color: var(--text-custom, var(--text-main));
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #webCanvas {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;
     }
 
     .wrap {
-      width: 100%; max-width: 520px; border-radius: 16px; padding: 24px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
+      width: 100%; max-width: 520px; border-radius: 12px; padding: 26px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.85), inset 0 0 0 1px rgba(251, 253, 255, 0.05); 
+      border: 1px solid var(--border-color);
       background-size: cover; background-position: center;
-      /* Dynamically managed opacity rules using modern color-mix fallback logic */
-      background-color: color-mix(in srgb, var(--card-bg-custom, var(--card-bg)) calc(var(--card-opacity, 1) * 100%), transparent);
+      background: color-mix(in srgb, var(--card-bg-custom, var(--card-cosmic)) calc(var(--card-opacity, 1) * 100%), transparent) !important;
       color: color-mix(in srgb, var(--text-custom, var(--text-main)) calc(var(--font-opacity, 1) * 100%), transparent);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.2, 1);
     }
 
-    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; gap: 12px; }
+    #cardCanvas {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
+    }
+
+    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; gap: 12px; position: relative; }
     .meta-area { flex-grow: 1; }
     
-    /* Editable Area Formatting */
     .editable-field {
-      border: 1px transparent dashed; padding: 2px 4px; border-radius: 4px; outline: none; transition: border 0.2s;
+      border: 1px transparent dashed; padding: 4px; border-radius: 4px; outline: none; transition: all 0.2s;
     }
-    .editable-field:hover, .editable-field:focus { border-color: var(--text-muted); background: rgba(0,0,0,0.02); }
-    #date { font-size: var(--date-size-custom, 0.9rem); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); }
-    #quoteDisplay { font-size: var(--quote-size-custom, 0.85rem); font-style: italic; margin-top: 4px; display: block; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); }
+    .editable-field:hover, .editable-field:focus { border-color: var(--text-muted); background: rgba(255, 255, 255, 0.03); }
+    #date { font-size: var(--date-size-custom, 0.9rem); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; color: color-mix(in srgb, var(--text-custom, var(--text-main)) calc(var(--font-opacity, 1) * 100%), transparent); letter-spacing: 1.5px; }
+    #quoteDisplay { font-size: var(--quote-size-custom, 0.85rem); font-style: italic; margin-top: 4px; display: block; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); line-height: 1.4; }
 
-    /* Progress UI Element Displayer Classes */
     .hide-progress #sealWrapper, .hide-progress #progressBarWrapper { display: none !important; }
 
     .seal-container { position: relative; width: 76px; height: 76px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
     .seal-svg { transform: rotate(-90deg); width: 100%; height: 100%; }
-    .seal-bg { fill: none; stroke: var(--circle-track-custom, var(--border-color)); stroke-width: 4; }
-    #sealFill { fill: none; stroke-width: 4; stroke-linecap: round; transition: stroke-dashoffset 0.3s, stroke 0.3s; }
-    .percent-label { position: absolute; font-size: 1.1rem; font-weight: 700; }
+    .seal-bg { fill: none; stroke: var(--circle-track-custom, rgba(201, 160, 84, 0.1)); stroke-width: 3; }
+    #sealFill { fill: none; stroke-width: 3; stroke-linecap: square; transition: stroke-dashoffset 0.4s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s; }
+    .percent-label { position: absolute; font-size: 1.1rem; font-weight: 700; text-shadow: 0 0 10px rgba(0,0,0,0.8); font-family: monospace; }
 
-    .progress-bar-container { background: var(--border-color); height: 6px; border-radius: 3px; overflow: hidden; margin-bottom: 16px; }
-    #barFill { height: 100%; width: 0%; background: var(--accent-green); transition: width 0.3s; }
-    #statsText { font-size: 0.85rem; margin-bottom: 20px; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); }
+    .progress-bar-container { background: rgba(255, 255, 255, 0.05); height: 4px; border-radius: 2px; overflow: hidden; margin-bottom: 16px; }
+    #barFill { height: 100%; width: 0%; background: var(--text-main); transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 8px var(--text-main); }
+    #statsText { font-size: 0.82rem; font-family: monospace; text-transform: uppercase; margin-bottom: 20px; color: var(--text-muted); letter-spacing: 0.5px; }
 
-    /* Component Widgets Modules (Clock, Stopwatch, Timer) */
     .utility-box {
-      background: rgba(0,0,0,0.03); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 20px; text-align: center;
+      background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 6px; padding: 12px; margin-bottom: 20px; text-align: center;
     }
-    .util-display { font-size: 1.6rem; font-weight: bold; font-family: monospace; margin-bottom: 8px; }
+    .util-display { font-size: 1.6rem; font-weight: bold; font-family: monospace; margin-bottom: 8px; letter-spacing: 1.5px; color: var(--text-main); }
     .util-row { display: flex; gap: 8px; justify-content: center; }
-    .util-row button, .util-row input { padding: 4px 8px; font-size: 0.8rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--card-bg-custom, var(--card-bg)); color: inherit; cursor: pointer; }
+    .util-row button, .util-row input { padding: 6px 10px; font-size: 0.8rem; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(0,0,0,0.5); color: var(--text-main); font-family: monospace; cursor: pointer; transition: all 0.2s; }
+    .util-row button:hover { background: var(--text-main); color: #000; }
     .util-row input { width: 60px; text-align: center; }
 
-    /* Goals System Styling */
     #list { list-style-type: none; margin-bottom: 24px; }
-    .goal { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border-color); gap: 12px; }
-    .goal.done .goal-text { text-decoration: line-through; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); }
-    .goal-text { flex-grow: 1; font-size: var(--goal-size-custom, 1rem); outline: none; }
-    .stamp { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--border-color); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .stamp svg { width: 12px; height: 12px; opacity: 0; }
-    .stamp.done { background: var(--accent-green); border-color: var(--accent-green); }
-    .stamp.done svg { opacity: 1; }
-    .del { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 4px; line-height: 1; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); }
-    #empty { text-align: center; padding: 20px 0; font-style: italic; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); }
+    .goal { display: flex; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); gap: 12px; position: relative; }
+    .goal.done .goal-text { text-decoration: line-through; color: var(--text-muted); opacity: 0.5; }
+    .goal-text { flex-grow: 1; font-size: var(--goal-size-custom, 1rem); outline: none; background: transparent; border: none; color: inherit; }
+    
+    .stamp { 
+      width: 24px; height: 24px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.15); 
+      background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s ease-out; position: relative;
+    }
+    .stamp svg { width: 12px; height: 12px; opacity: 0; transition: transform 0.2s; }
+    .stamp.done { background: var(--text-main); border-color: var(--text-main); box-shadow: 0 0 8px var(--text-main); }
+    .stamp.done svg { opacity: 1; stroke: #000; }
+    
+    .del { background: none; border: none; font-size: 1.1rem; cursor: pointer; padding: 4px; line-height: 1; color: var(--text-muted); opacity: 0.4; transition: opacity 0.2s; }
+    .del:hover { opacity: 1; color: var(--accent-red); }
+    #empty { text-align: center; padding: 20px 0; font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
 
-    .input-row { display: flex; gap: 8px; margin-bottom: 16px; }
-    #goalInput { flex-grow: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.95rem; background: var(--card-bg-custom, var(--card-bg)); color: inherit; }
-    button.btn { padding: 10px 16px; border-radius: 8px; border: none; font-size: 0.95rem; cursor: pointer; font-weight: 600; }
-    #addBtn { background: var(--text-custom, var(--text-main)); color: var(--card-bg-custom, var(--card-bg)); }
-    #clearBtn { width: 100%; background: transparent; border: 1px solid var(--border-color); font-size: 0.85rem; padding: 8px; margin-bottom: 24px; cursor: pointer; color: color-mix(in srgb, var(--text-custom, var(--text-muted)) calc(var(--font-opacity, 1) * 100%), transparent); }
+    .input-row { display: flex; gap: 8px; margin-bottom: 16px; position: relative; }
+    #goalInput { flex-grow: 1; padding: 12px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.95rem; background: rgba(0,0,0,0.4); color: #fff; outline: none; transition: border-color 0.2s; }
+    #goalInput:focus { border-color: var(--text-main); }
+    button.btn { padding: 10px 18px; border-radius: 6px; border: none; font-size: 0.95rem; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    #addBtn { background: var(--text-main); color: #000; text-transform: uppercase; letter-spacing: 0.5px; }
+    #addBtn:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 0 10px rgba(201, 160, 84, 0.4); }
+    #clearBtn { width: 100%; background: transparent; border: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.82rem; font-family: monospace; text-transform: uppercase; padding: 10px; margin-bottom: 24px; cursor: pointer; color: var(--text-muted); border-radius: 6px; letter-spacing: 0.5px; }
+    #clearBtn:hover { background: rgba(255, 255, 255, 0.03); color: var(--text-main); }
 
-    /* Configuration Panel Accordion Style Details Container */
-    .config-accordion { border-top: 2px dashed var(--border-color); padding-top: 16px; margin-top: 16px; }
-    .config-summary { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; cursor: pointer; user-select: none; color: var(--text-muted); padding: 4px 0; outline: none; }
-    .config-summary:hover { color: var(--text-custom, var(--text-main)); }
+    .config-accordion { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; margin-top: 16px; position: relative; }
+    .config-summary { font-size: 0.85rem; font-family: monospace; font-weight: bold; text-transform: uppercase; cursor: pointer; user-select: none; color: var(--text-muted); padding: 4px 0; outline: none; letter-spacing: 1px; }
     .config-panel { padding-top: 16px; }
     .config-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
     .config-field { display: flex; flex-direction: column; gap: 4px; }
-    .config-field label { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
-    .config-field select, .config-field input { padding: 6px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--card-bg-custom, var(--card-bg)); color: inherit; font-size: 0.85rem; }
+    .config-field label { font-size: 0.72rem; font-family: monospace; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+    .config-field select, .config-field input { padding: 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(0,0,0,0.5); color: inherit; font-size: 0.85rem; outline: none; }
     .config-field input[type="range"] { padding: 0; cursor: pointer; }
-    .config-field input[type="color"] { padding: 2px; height: 34px; cursor: pointer; width: 100%; }
-    .checkbox-field { flex-direction: row; align-items: center; gap: 8px; margin-top: 6px; cursor: pointer; }
-    .checkbox-field input { cursor: pointer; }
-    .file-input-wrapper { display: flex; align-items: center; gap: 4px; }
-    .clear-file-btn { padding: 4px 6px; font-size: 0.75rem; border: 1px solid var(--border-color); background: var(--card-bg-custom, var(--card-bg)); color: inherit; border-radius: 4px; cursor: pointer; }
+    .config-field input[type="color"] { padding: 2px; height: 38px; cursor: pointer; width: 100%; }
+    .checkbox-field { flex-direction: row; align-items: center; gap: 8px; margin-top: 6px; cursor: pointer; font-family: monospace; font-size: 0.75rem; color: var(--text-muted); }
   </style>
 </head>
 <body class="font-sans">
 
+  <canvas id="webCanvas"></canvas>
+
   <div class="wrap" id="appWrapper">
+    <canvas id="cardCanvas"></canvas>
     <header>
       <div class="meta-area">
         <div id="date" class="editable-field" contenteditable="true">Loading Date...</div>
@@ -188,7 +226,7 @@
           <div class="config-field">
             <label for="themeSelect">Color Theme</label>
             <select id="themeSelect">
-              <option value="default">Ledger Light</option>
+              <option value="default">Timeline Gold (Loki)</option>
               <option value="dark">Charcoal Dark</option>
               <option value="cyberpunk">Cyberpunk Neon</option>
               <option value="sepia">Vintage Sepia</option>
@@ -201,25 +239,24 @@
           </div>
           <div class="config-field">
             <label for="textColorPicker">Font Color</label>
-            <input type="color" id="textColorPicker" value="#2b2b2a">
+            <input type="color" id="textColorPicker" value="#c9a054">
           </div>
           <div class="config-field">
             <label for="cardBgColorPicker">Block/Card Background Color</label>
-            <input type="color" id="cardBgColorPicker" value="#ffffff">
+            <input type="color" id="cardBgColorPicker" value="#11161d">
           </div>
           <div class="config-field">
             <label for="pageBgColorPicker">Web Page Custom BG Color</label>
-            <input type="color" id="pageBgColorPicker" value="#f7f5f0">
+            <input type="color" id="pageBgColorPicker" value="#050508">
           </div>
 
-          <!-- Circle Color Configurations -->
           <div class="config-field">
             <label for="circleTrackColorPicker">Percentage Ring Track Color</label>
-            <input type="color" id="circleTrackColorPicker" value="#e5e2db">
+            <input type="color" id="circleTrackColorPicker" value="#2c2519">
           </div>
           <div class="config-field">
             <label for="circleFillColorPicker">Percentage Ring Progress Color</label>
-            <input type="color" id="circleFillColorPicker" value="#C1440E">
+            <input type="color" id="circleFillColorPicker" value="#c9a054">
           </div>
 
           <div class="config-field">
@@ -268,7 +305,6 @@
             <input type="range" id="fontOpacityRange" min="0.1" max="1.0" step="0.05" value="1.0">
           </div>
           
-          <!-- Font Size Adjustment Sliders -->
           <div class="config-field">
             <label for="dateSizeRange">Date Font Size</label>
             <input type="range" id="dateSizeRange" min="0.6" max="2.0" step="0.05" value="0.9">
@@ -295,12 +331,11 @@
     const CONFIG_KEY = 'daily-ledger-config-v1';
     
     const defaultGoals = [
-      { id: 1, text: 'Drink 8 glasses of water', done: true },
-      { id: 2, text: 'Read for 20 minutes', done: false },
-      { id: 3, text: '30 minute walk', done: false }
+      { id: 1, text: 'Prune temporal variants', done: true },
+      { id: 2, text: 'Monitor timeline fluctuations', done: false },
+      { id: 3, text: 'Locate the Citadel at the End of Time', done: false }
     ];
 
-    // Core Tracking Sync Management Operations
     function loadGoals(){
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -308,23 +343,17 @@
         const parsed = JSON.parse(raw);
         if(!Array.isArray(parsed.goals)) return { goals: defaultGoals, nextId: 4 };
         return parsed;
-      } catch(e) {
-        console.error('Could not load saved goals:', e);
-        return { goals: defaultGoals, nextId: 4 };
-      }
+      } catch(e) { return { goals: defaultGoals, nextId: 4 }; }
     }
 
     function saveGoals(){
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ goals, nextId }));
-      } catch(e) {
-        console.error('Could not save goals:', e);
-      }
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ goals, nextId })); } catch(e) {}
     }
 
-    // Config Initialization Parameters Data Array Block
     let config = {
       theme: 'default',
+      font: 'font-sans',
+      utility: 'none',
       textColor: '',
       cardBgColor: '',
       pageBgImage: '',
@@ -337,8 +366,9 @@
       dateFontSize: '0.9',
       quoteFontSize: '0.85',
       goalFontSize: '1.0',
+      showProgress: true,
       isPanelOpen: false,
-      customQuote: 'Click here to write your custom affirmation or daily quote...',
+      customQuote: 'For all time. Always.',
       customDate: new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
     };
 
@@ -349,13 +379,11 @@
           const parsed = JSON.parse(raw);
           config = { ...config, ...parsed };
         }
-      } catch(e) { console.error('Error loading config:', e); }
+      } catch(e) {}
     }
 
     function saveConfig(){
-      try {
-        localStorage.setItem(CONFIG_KEY, JSON.stringify(config));
-      } catch(e) { console.error('Error saving config:', e); }
+      try { localStorage.setItem(CONFIG_KEY, JSON.stringify(config)); } catch(e) {}
     }
 
     let { goals, nextId } = loadGoals();
@@ -374,7 +402,6 @@
     const quoteEl = document.getElementById('quoteDisplay');
     const appWrapper = document.getElementById('appWrapper');
 
-    // Customization Input Handles
     const themeSelect = document.getElementById('themeSelect');
     const textColorPicker = document.getElementById('textColorPicker');
     const cardBgColorPicker = document.getElementById('cardBgColorPicker');
@@ -395,7 +422,6 @@
     const progressToggle = document.getElementById('progressToggle');
     const configDropdown = document.getElementById('configDropdown');
 
-    // Utility Component Controls
     const utilityBox = document.getElementById('utilityModule');
     const utilDisplay = document.getElementById('utilDisplay');
     const stopwatchControls = document.getElementById('stopwatchControls');
@@ -404,31 +430,27 @@
     const CIRC = 2 * Math.PI * 33;
     sealFill.style.strokeDasharray = CIRC;
 
-    // Apply Configuration State to DOM Matrix UI
     function applyConfigurationUI() {
       document.documentElement.setAttribute('data-theme', config.theme);
-      document.body.className = config.font;
+      document.body.className = config.font || 'font-sans';
       
-      // Target the card component wrapper background image
       appWrapper.style.backgroundImage = config.bgImage ? `url('${config.bgImage}')` : 'none';
       
-      // Target block/card color layer rules
       if(config.cardBgColor) {
         appWrapper.style.setProperty('--card-bg-custom', config.cardBgColor);
         cardBgColorPicker.value = config.cardBgColor;
       } else {
         appWrapper.style.removeProperty('--card-bg-custom');
-        cardBgColorPicker.value = getComputedStyle(document.documentElement).getPropertyValue('--card-bg').trim() || '#ffffff';
+        cardBgColorPicker.value = '#11161d';
       }
 
-      // Target the entire page background image & color properties
       document.body.style.backgroundImage = config.pageBgImage ? `url('${config.pageBgImage}')` : 'none';
       if(config.pageBgColor) {
         document.body.style.setProperty('--body-bg-custom', config.pageBgColor);
         pageBgColorPicker.value = config.pageBgColor;
       } else {
         document.body.style.removeProperty('--body-bg-custom');
-        pageBgColorPicker.value = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim() || '#f7f5f0';
+        pageBgColorPicker.value = '#050508';
       }
       
       if(config.textColor) {
@@ -436,35 +458,26 @@
         textColorPicker.value = config.textColor;
       } else {
         appWrapper.style.removeProperty('--text-custom');
-        textColorPicker.value = getComputedStyle(document.documentElement).getPropertyValue('--text-main').trim() || '#2b2b2a';
+        textColorPicker.value = '#c9a054';
       }
 
-      // Circle Base Track Custom Formatting Rules
       if(config.circleTrackColor) {
         appWrapper.style.setProperty('--circle-track-custom', config.circleTrackColor);
         circleTrackColorPicker.value = config.circleTrackColor;
       } else {
         appWrapper.style.removeProperty('--circle-track-custom');
-        circleTrackColorPicker.value = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() || '#e5e2db';
       }
 
       if(config.circleFillColor) {
         circleFillColorPicker.value = config.circleFillColor;
       } else {
-        const total = goals.length;
-        const done = goals.filter(g => g.done).length;
-        const pct = total ? Math.round((done / total) * 100) : 0;
-        circleFillColorPicker.value = pct === 100 && total > 0 ? 
-          (getComputedStyle(document.documentElement).getPropertyValue('--accent-green').trim() || '#7FA37A') : 
-          (getComputedStyle(document.documentElement).getPropertyValue('--accent-red').trim() || '#C1440E');
+        circleFillColorPicker.value = '#c9a054';
       }
 
-      // Font Sizing Property Remaps
       appWrapper.style.setProperty('--date-size-custom', config.dateFontSize + 'rem');
       appWrapper.style.setProperty('--quote-size-custom', config.quoteFontSize + 'rem');
       appWrapper.style.setProperty('--goal-size-custom', config.goalFontSize + 'rem');
 
-      // Control specific structural transparency rules
       appWrapper.style.setProperty('--card-opacity', config.cardOpacity);
       appWrapper.style.setProperty('--font-opacity', config.fontOpacity);
 
@@ -478,8 +491,8 @@
       quoteEl.textContent = config.customQuote;
 
       themeSelect.value = config.theme;
-      fontSelect.value = config.font;
-      utilitySelect.value = config.utility;
+      fontSelect.value = config.font || 'font-sans';
+      utilitySelect.value = config.utility || 'none';
       cardOpacityRange.value = config.cardOpacity;
       fontOpacityRange.value = config.fontOpacity;
       dateSizeRange.value = config.dateFontSize;
@@ -496,7 +509,6 @@
       renderUtilityModule();
     }
 
-    // Dynamic Module Switcher Engine Framework
     let utilInterval = null;
 
     function renderUtilityModule() {
@@ -505,7 +517,7 @@
       stopwatchControls.style.display = 'none';
       timerControls.style.display = 'none';
 
-      if (config.utility === 'none') return;
+      if (!config.utility || config.utility === 'none') return;
       utilityBox.style.display = 'block';
 
       if (config.utility === 'clock') {
@@ -548,7 +560,7 @@
             remaining = Math.max(0, endTS - Date.now());
             if (remaining === 0) {
               localStorage.setItem('tm_running', 'false');
-              alert('Timer countdown finished!');
+              alert('Timeline paradox stabilized! Timer complete.');
             }
           } else {
             remaining = parseInt(localStorage.getItem('tm_remain_base') || '0', 10);
@@ -564,7 +576,6 @@
       }
     }
 
-    // Background Processing Invariants Implementation logic for Stopwatch
     document.getElementById('swStartBtn').onclick = () => {
       const running = localStorage.getItem('sw_running') === 'true';
       if (!running) {
@@ -587,7 +598,6 @@
       renderUtilityModule();
     };
 
-    // Background Processing Invariants Implementation logic for Countdown Timer
     document.getElementById('timerStartBtn').onclick = () => {
       const mins = parseInt(document.getElementById('timerInput').value, 10) || 5;
       const msDuration = mins * 60 * 1000;
@@ -603,7 +613,6 @@
       renderUtilityModule();
     };
 
-    // Core Application Rendering Function
     function render(){
       list.innerHTML = "";
       if(goals.length === 0){
@@ -616,9 +625,19 @@
 
           const stamp = document.createElement('button');
           stamp.className = 'stamp' + (g.done ? ' done' : '');
-          stamp.setAttribute('aria-label', g.done ? 'Mark as not done' : 'Mark as done');
-          stamp.innerHTML = '<svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L4.8 9L10 3" stroke="#E9E2CC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+          stamp.setAttribute('aria-label', g.done ? 'Mark branch variant active' : 'Prune variant branch');
+          stamp.innerHTML = '<svg viewBox="0 0 12 12" fill="none"><path d="M2 6.2L4.8 9L10 3" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
           stamp.onclick = () => toggle(g.id);
+
+          stamp.addEventListener('mousemove', (e) => {
+            const bounds = stamp.getBoundingClientRect();
+            const x = e.clientX - bounds.left - bounds.width / 2;
+            const y = e.clientY - bounds.top - bounds.height / 2;
+            stamp.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+          });
+          stamp.addEventListener('mouseleave', () => {
+            stamp.style.transform = '';
+          });
 
           const text = document.createElement('span');
           text.className = 'goal-text';
@@ -626,7 +645,7 @@
 
           const del = document.createElement('button');
           del.className = 'del';
-          del.setAttribute('aria-label', 'Delete goal');
+          del.setAttribute('aria-label', 'Delete branch coordinate');
           del.textContent = 'x';
           del.onclick = () => remove(g.id);
 
@@ -644,16 +663,15 @@
       barFill.style.width = pct + '%';
       sealFill.style.strokeDashoffset = CIRC * (1 - pct / 100);
       
-      // Explicit Override check on dynamic fill engine rules
       if(config.circleFillColor) {
         sealFill.style.stroke = config.circleFillColor;
       } else {
-        sealFill.style.stroke = pct === 100 && total > 0 ? '#7FA37A' : '#C1440E';
+        sealFill.style.stroke = 'var(--text-main)';
       }
 
       statsText.textContent = total === 0
-        ? 'No goals yet today'
-        : done + ' of ' + total + ' stamped. ' + pct + '% complete';
+        ? 'Timeline normalized. No assignments.'
+        : done + ' of ' + total + ' branches pruned. ' + pct + '% stabilized';
     }
 
     function toggle(id){
@@ -678,7 +696,6 @@
       input.focus();
     }
 
-    // Input Listeners & Event Mapping Setup
     addBtn.onclick = addGoal;
     input.addEventListener('keydown', e => { if(e.key === 'Enter') addGoal(); });
     clearBtn.onclick = () => {
@@ -687,7 +704,6 @@
       render();
     };
 
-    // Customization Input Handlers Bindings
     themeSelect.onchange = (e) => { 
       config.theme = e.target.value; 
       config.textColor = ''; 
@@ -733,7 +749,6 @@
     fontSelect.onchange = (e) => { config.font = e.target.value; saveConfig(); applyConfigurationUI(); };
     utilitySelect.onchange = (e) => { config.utility = e.target.value; saveConfig(); applyConfigurationUI(); };
     
-    // Font Sizing Listeners
     dateSizeRange.oninput = (e) => {
       config.dateFontSize = e.target.value;
       saveConfig();
@@ -752,7 +767,6 @@
       appWrapper.style.setProperty('--goal-size-custom', config.goalFontSize + 'rem');
     };
 
-    // Card Background File Processing Engine
     bgImageLocal.onchange = (e) => {
       const file = e.target.files[0];
       if (!file) return;
@@ -773,7 +787,6 @@
       applyConfigurationUI();
     };
 
-    // Web Page Background File Processing Engine
     pageBgImageLocal.onchange = (e) => {
       const file = e.target.files[0];
       if (!file) return;
@@ -794,7 +807,6 @@
       applyConfigurationUI();
     };
 
-    // Transparency Sliders State Handlers
     cardOpacityRange.oninput = (e) => {
       config.cardOpacity = e.target.value;
       saveConfig();
@@ -809,17 +821,182 @@
 
     progressToggle.onchange = (e) => { config.showProgress = e.target.checked; saveConfig(); applyConfigurationUI(); };
     
-    // Manage Details Accordion open/close state metrics tracker
     configDropdown.addEventListener('toggle', () => {
       config.isPanelOpen = configDropdown.open;
       saveConfig();
     });
 
-    // Auto-save mechanisms for Inline Editable Fields
     dateEl.onblur = () => { config.customDate = dateEl.textContent; saveConfig(); };
     quoteEl.onblur = () => { config.customQuote = quoteEl.textContent; saveConfig(); };
 
-    // Self-Executing Lifecycle System Boots
+    // ===================================================
+    // GLOBAL BACKGROUND LAYER: THE SACRED TIMELINE INTERACTION
+    // ===================================================
+    const canvas = document.getElementById('webCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const maxParticles = 60; 
+    const connectionDist = 140;
+    const mouse = { x: null, y: null, radius: 200 };
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.radius = Math.random() * 1.5 + 1;
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = this.x - mouse.x;
+          const dy = this.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const force = (mouse.radius - dist) / mouse.radius;
+            this.x += (dx / dist) * force * 1.2;
+            this.y += (dy / dist) * force * 1.2;
+          }
+        }
+      }
+      draw() {
+        const themeColor = getComputedStyle(appWrapper).getPropertyValue('--text-muted').trim() || '#e67e22';
+        ctx.fillStyle = themeColor;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < maxParticles; i++) particles.push(new Particle());
+    }
+    initParticles();
+
+    // ===================================================
+    // CARD BOUNDARY LAYER: TEMPORAL CHRONO-DUST DECAY
+    // ===================================================
+    const cardCanvas = document.getElementById('cardCanvas');
+    const cctx = cardCanvas.getContext('2d');
+    let cardParticles = [];
+    const cardMouse = { x: null, y: null };
+
+    function resizeCardCanvas() {
+      cardCanvas.width = appWrapper.clientWidth;
+      cardCanvas.height = appWrapper.clientHeight;
+    }
+    
+    const resizeObserver = new ResizeObserver(() => resizeCardCanvas());
+    resizeObserver.observe(appWrapper);
+
+    appWrapper.addEventListener('mousemove', (e) => {
+      const rect = appWrapper.getBoundingClientRect();
+      cardMouse.x = e.clientX - rect.left;
+      cardMouse.y = e.clientY - rect.top;
+
+      const tiltX = (cardMouse.y - rect.height / 2) / 40;
+      const tiltY = -(cardMouse.x - rect.width / 2) / 40;
+      appWrapper.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+
+      if (Math.random() < 0.5) {
+        cardParticles.push({
+          x: cardMouse.x,
+          y: cardMouse.y,
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: (Math.random() - 0.5) * -1.5, 
+          alpha: 1,
+          size: Math.random() * 1.8 + 0.8
+        });
+      }
+    });
+
+    appWrapper.addEventListener('mouseleave', () => {
+      cardMouse.x = null; cardMouse.y = null;
+      appWrapper.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+
+    function updateCardParticles() {
+      for (let i = cardParticles.length - 1; i >= 0; i--) {
+        let p = cardParticles[i];
+        p.x += p.vx; p.y += p.vy; p.alpha -= 0.025;
+        if (p.alpha <= 0) {
+          cardParticles.splice(i, 1);
+        }
+      }
+    }
+
+    function drawCardParticles() {
+      const themeColor = getComputedStyle(appWrapper).getPropertyValue('--text-main').trim() || '#c9a054';
+      cctx.clearRect(0, 0, cardCanvas.width, cardCanvas.height);
+      cardParticles.forEach(p => {
+        cctx.save();
+        cctx.globalAlpha = p.alpha;
+        cctx.fillStyle = themeColor;
+        cctx.beginPath();
+        cctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        cctx.fill();
+        cctx.restore();
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const themeMuted = getComputedStyle(appWrapper).getPropertyValue('--text-muted').trim() || '#e67e22';
+      const themeMain = getComputedStyle(appWrapper).getPropertyValue('--text-main').trim() || '#c9a054';
+      
+      particles.forEach(p => { p.update(); p.draw(); });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < connectionDist) {
+            const alpha = (1 - dist / connectionDist) * 0.18;
+            ctx.strokeStyle = `color-mix(in srgb, ${themeMuted} ${alpha * 100}%, transparent)`;
+            ctx.lineWidth = 0.6; ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = particles[i].x - mouse.x;
+          const dy = particles[i].y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const alpha = (1 - dist / mouse.radius) * 0.3;
+            ctx.strokeStyle = `color-mix(in srgb, ${themeMain} ${alpha * 100}%, transparent)`;
+            ctx.lineWidth = 0.9; ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      updateCardParticles();
+      drawCardParticles();
+
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
     applyConfigurationUI();
     render();
   </script>
